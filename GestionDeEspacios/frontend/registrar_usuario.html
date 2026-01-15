@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/NextFlow_Logo_blanco.png">
+    <title>Registro de Usuario - NEXTFLOW</title>
+    <link rel="stylesheet" href="styles/css/registrar_usuarios.css?v=9.2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="styles/js/theme-toggle.js"></script>
+</head>
+<body>
+    <div class="register-container">
+        <a href="login.html" class="back-arrow">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <!-- Botón de cambio de tema -->
+        <button class="theme-toggle-btn" onclick="window.themeToggle.toggle()" style="position: absolute; top: 1.5rem; right: 1.5rem; background: transparent; border: none; color: var(--text-primary, #333); font-size: 1.5rem; cursor: pointer; padding: 0.5rem; border-radius: 50%; transition: all 0.3s ease; z-index: 1;">
+            <i class="fas fa-moon"></i>
+        </button>
+        <h1>Crear Cuenta</h1>
+        <form id="registerForm" action="/GestionDeEspacios/backend/public/registrar_usuario.php" method="POST">
+            <div class="form-group">
+                <div class="custom-select-wrapper" id="customTipoUsuario">
+                    <div class="custom-select-selected">
+                        <span class="custom-select-placeholder">Seleccione tipo de usuario...</span>
+                        <span class="custom-select-arrow"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="custom-select-options" style="display:none;">
+                        <div class="custom-select-option" data-value="administrador">Administrador</div>
+                        <div class="custom-select-option" data-value="cliente">Cliente</div>
+                    </div>
+                    <input type="hidden" id="tipo_usuario" name="tipo_usuario" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" id="nombre_usuario" name="nombre_usuario" required placeholder="Nombre de usuario">
+            </div>
+            <div class="form-group">
+                <input type="password" id="contrasena" name="contrasena" required placeholder="Contraseña">
+                <div class="input-hint" id="hint-contrasena">Mínimo 8 caracteres, una mayúscula y un carácter especial.</div>
+            </div>
+            <div class="form-group">
+                <div style="display:flex; gap:0.6rem; align-items:center;">
+                    <input type="text" id="rut" name="rut" required placeholder="RUT sin DV (19503822)" maxlength="9" style="flex:1;">
+                    <span>-</span>
+                    <input type="text" id="digito_verificador" name="digito_verificador" required placeholder="DV" maxlength="1" style="width:64px; text-transform:uppercase;">
+                </div>
+                <div class="input-hint" id="hint-rut">Ejemplo: RUT 19503822 y DV 2</div>
+            </div>
+            <div class="form-group">
+                <input type="text" id="nombre" name="nombre" required placeholder="Nombre">
+            </div>
+            <div class="form-group">
+                <input type="text" id="apellido" name="apellido" required placeholder="Apellido">
+            </div>
+            <div class="form-group">
+                <input type="email" id="correo_electronico" name="correo_electronico" required placeholder="Correo electrónico">
+                <div class="input-hint" id="hint-correo">Ejemplo: usuario@dominio.com</div>
+            </div>
+            <div class="form-group">
+                <div class="custom-select-wrapper" id="customRegion">
+                    <div class="custom-select-selected">
+                        <span class="custom-select-placeholder">Seleccione región (opcional)...</span>
+                        <span class="custom-select-arrow"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="custom-select-options" style="display:none;">
+                        <div class="custom-select-option" data-value="">Sin región</div>
+                        <!-- Las regiones se cargarán dinámicamente -->
+                    </div>
+                    <input type="hidden" id="region" name="region">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-select-wrapper" id="customCiudad">
+                    <div class="custom-select-selected">
+                        <span class="custom-select-placeholder">Seleccione ciudad (opcional)...</span>
+                        <span class="custom-select-arrow"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="custom-select-options" style="display:none;">
+                        <div class="custom-select-option" data-value="">Sin ciudad</div>
+                        <!-- Las ciudades se cargarán dinámicamente -->
+                    </div>
+                    <input type="hidden" id="ciudad" name="ciudad">
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" id="direccion" name="direccion" placeholder="Dirección (opcional)">
+            </div>
+            <div class="form-group">
+                <input type="tel" id="telefono" name="telefono" required placeholder="Teléfono (9XXXXXXXX)" maxlength="9">
+                <div class="input-hint" id="hint-telefono">Debe comenzar con 9 y tener 9 dígitos.</div>
+            </div>
+            
+            
+            <button type="submit">Registrarse</button>
+            <div class="login-link">
+                <p>¿Ya tienes una cuenta?</p>
+                <a href="login.html" class="login-button">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Iniciar Sesión
+                </a>
+            </div>
+        </form>
+    </div>
+    <script>
+        // Variables globales para manejar regiones y ciudades
+        let regiones = [];
+        let ciudades = [];
+        let regionSeleccionada = null;
+
+        // Función para crear custom select
+        function createCustomSelect(wrapperId, options, placeholder, onChange) {
+            const wrapper = document.getElementById(wrapperId);
+            const selected = wrapper.querySelector('.custom-select-selected');
+            const optionsContainer = wrapper.querySelector('.custom-select-options');
+            const hiddenInput = wrapper.querySelector('input[type="hidden"]');
+            const placeholderElement = selected.querySelector('.custom-select-placeholder');
+            let isOpen = false;
+
+            // Limpiar opciones existentes
+            optionsContainer.innerHTML = '';
+
+            // Agregar opciones
+            options.forEach(option => {
+                const div = document.createElement('div');
+                div.className = 'custom-select-option';
+                div.textContent = option.text;
+                div.setAttribute('data-value', option.value);
+                optionsContainer.appendChild(div);
+            });
+
+            function closeSelect() {
+                optionsContainer.style.display = 'none';
+                selected.classList.remove('active');
+                document.body.style.overflow = '';
+                isOpen = false;
+            }
+
+            selected.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (!isOpen) {
+                    optionsContainer.style.display = 'block';
+                    selected.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    isOpen = true;
+                } else {
+                    closeSelect();
+                }
+            });
+
+            optionsContainer.querySelectorAll('.custom-select-option').forEach(opt => {
+                opt.addEventListener('click', function(e) {
+                    placeholderElement.textContent = this.textContent;
+                    hiddenInput.value = this.getAttribute('data-value');
+                    optionsContainer.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                    closeSelect();
+                    
+                    // Llamar callback si existe
+                    if (onChange) {
+                        onChange(this.getAttribute('data-value'), this.textContent);
+                    }
+                });
+            });
+
+            document.addEventListener('click', function(e) {
+                if (isOpen) closeSelect();
+            });
+        }
+
+        // Custom select para tipo de usuario
+        (function() {
+            const options = [
+                { text: 'Seleccione tipo de usuario...', value: '' },
+                { text: 'Administrador', value: 'administrador' },
+                { text: 'Cliente', value: 'cliente' }
+            ];
+            createCustomSelect('customTipoUsuario', options);
+        })();
+
+        // Función para cargar regiones
+        async function cargarRegiones() {
+            try {
+                const response = await fetch('/GestionDeEspacios/backend/public/regiones_chile.php?action=regiones');
+                const result = await response.json();
+                
+                if (result.success) {
+                    regiones = result.regiones;
+                    const options = [
+                        { text: 'Seleccione región (opcional)...', value: '' },
+                        { text: 'Sin región', value: '' }
+                    ];
+                    
+                    regiones.forEach(region => {
+                        options.push({
+                            text: region.nombre_region,
+                            value: region.nombre_region
+                        });
+                    });
+                    
+                    createCustomSelect('customRegion', options, 'Seleccione región (opcional)...', (value, text) => {
+                        regionSeleccionada = value;
+                        cargarCiudades(value);
+                    });
+                } else {
+                    console.error('Error al cargar regiones:', result.message);
+                }
+            } catch (error) {
+                console.error('Error al cargar regiones:', error);
+            }
+        }
+
+        // Función para cargar ciudades
+        async function cargarCiudades(nombreRegion) {
+            try {
+                if (!nombreRegion || !regiones.length) {
+                    // Limpiar ciudades si no hay región seleccionada
+                    const options = [
+                        { text: 'Seleccione ciudad (opcional)...', value: '' },
+                        { text: 'Sin ciudad', value: '' }
+                    ];
+                    createCustomSelect('customCiudad', options);
+                    return;
+                }
+
+                // Buscar ID de la región
+                const region = regiones.find(r => r.nombre_region === nombreRegion);
+                if (!region) return;
+
+                const response = await fetch(`/GestionDeEspacios/backend/public/regiones_chile.php?action=ciudades&id_region=${region.id_region}`);
+                const result = await response.json();
+                
+                if (result.success) {
+                    ciudades = result.ciudades;
+                    const options = [
+                        { text: 'Seleccione ciudad (opcional)...', value: '' },
+                        { text: 'Sin ciudad', value: '' }
+                    ];
+                    
+                    ciudades.forEach(ciudad => {
+                        options.push({
+                            text: ciudad.nombre_ciudad,
+                            value: ciudad.nombre_ciudad
+                        });
+                    });
+                    
+                    createCustomSelect('customCiudad', options);
+                } else {
+                    console.error('Error al cargar ciudades:', result.message);
+                }
+            } catch (error) {
+                console.error('Error al cargar ciudades:', error);
+            }
+        }
+
+        // Cargar regiones al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            cargarRegiones();
+        });
+
+        
+
+        // Interceptar el submit para enviar por AJAX y mostrar mensaje
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+
+            // Log para depuración
+            console.log('Datos del formulario:', data);
+            console.log('Dirección enviada:', data.direccion);
+            console.log('Tipo de usuario seleccionado:', data.tipo_usuario);
+
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData
+            });
+            let result;
+            try {
+                // Intenta parsear como JSON
+                result = await response.json();
+                // Si el mensaje es vacío, intenta extraer texto plano
+                if (!result.message) {
+                    const text = await response.text();
+                    result.message = text || 'Error inesperado en el servidor.';
+                }
+            } catch (err) {
+                // Si no es JSON, intenta mostrar el texto plano
+                const text = await response.text();
+                result = { success: false, message: text || 'Error inesperado en el servidor.' };
+            }
+            mostrarCardEmergente(result.success, result.message);
+            if (result.success) {
+                form.reset();
+            }
+        });
+
+        // Card emergente centrada con fondo difuminado
+        function mostrarCardEmergente(success, message) {
+            // Crear overlay difuminado
+            let overlay = document.getElementById('overlay-msg');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.id = 'overlay-msg';
+                overlay.style.position = 'fixed';
+                overlay.style.top = 0;
+                overlay.style.left = 0;
+                overlay.style.width = '100vw';
+                overlay.style.height = '100vh';
+                overlay.style.background = 'rgba(44,62,80,0.45)';
+                overlay.style.backdropFilter = 'blur(3px)';
+                overlay.style.display = 'flex';
+                overlay.style.alignItems = 'center';
+                overlay.style.justifyContent = 'center';
+                overlay.style.zIndex = 9999;
+                document.body.appendChild(overlay);
+            }
+            // Crear card
+            let card = document.createElement('div');
+            card.style.background = '#000000';
+            card.style.borderRadius = '16px';
+            card.style.boxShadow = '0 8px 32px rgba(44,62,80,0.18)';
+            card.style.padding = '2em 1.2em 1.5em 1.2em';
+            card.style.maxWidth = '90vw';
+            card.style.width = '270px';
+            card.style.textAlign = 'center';
+            card.style.position = 'relative';
+            card.style.display = 'flex';
+            card.style.flexDirection = 'column';
+            card.style.alignItems = 'center';
+            card.style.borderLeft = success ? '7px solid #ffd700' : '7px solid #e74c3c';
+
+            // Icono
+            let icon = document.createElement('div');
+            icon.innerHTML = success
+                ? '<i class="fas fa-check-circle" style="font-size:2.3em;color:#ffd700;"></i>'
+                : '<i class="fas fa-times-circle" style="font-size:2.3em;color:#e74c3c;"></i>';
+            card.appendChild(icon);
+
+            // Mensaje
+            let msg = document.createElement('div');
+            msg.textContent = message;
+            msg.style.margin = '1em 0 1.2em 0';
+            msg.style.fontSize = '1.08em';
+            msg.style.fontWeight = 'bold';
+            msg.style.color = '#ffffff';
+            card.appendChild(msg);
+
+            // Botón cerrar
+            let btn = document.createElement('button');
+            btn.textContent = success ? 'Ir al Login' : 'Cerrar';
+            btn.style.background = 'linear-gradient(135deg, #ffd700, #ffed4e)';
+            btn.style.color = '#333';
+            btn.style.border = 'none';
+            btn.style.borderRadius = '8px';
+            btn.style.padding = '0.6em 1.5em';
+            btn.style.fontSize = '0.98em';
+            btn.style.fontWeight = 'bold';
+            btn.style.cursor = 'pointer';
+            btn.style.marginTop = '0.3em';
+            btn.onclick = function() {
+                overlay.remove();
+                if (success) {
+                    window.location.href = 'login.html';
+                }
+            };
+            card.appendChild(btn);
+
+            // Limpiar overlay y agregar card
+            overlay.innerHTML = '';
+            overlay.appendChild(card);
+        }
+
+        // Validación en tiempo real para sugerencias (solo visible si hay contenido)
+        function toggleHint(inputId, hintId, isValidFn) {
+            const input = document.getElementById(inputId);
+            const hint = document.getElementById(hintId);
+            input.addEventListener('input', function() {
+                if (this.value.length === 0) {
+                    hint.style.display = 'none';
+            } else {
+                    hint.style.display = 'block';
+                    hint.style.color = isValidFn(this.value) ? '#27ae60' : '#e74c3c';
+                }
+            });
+            // Ocultar por defecto
+            hint.style.display = 'none';
+        }
+        toggleHint('contrasena', 'hint-contrasena', val => val.length >= 8 && /[A-Z]/.test(val) && /[^a-zA-Z0-9]/.test(val));
+        toggleHint('correo_electronico', 'hint-correo', val => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val));
+        toggleHint('telefono', 'hint-telefono', val => /^9\d{8}$/.test(val));
+        toggleHint('rut', 'hint-rut', val => /^\d{7,8,9}$/.test(val));
+        toggleHint('digito_verificador', 'hint-rut', val => /^[\dkK]$/.test(val));
+
+
+    </script>
+</body>
+</html>

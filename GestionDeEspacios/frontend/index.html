@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/NextFlow_Logo_blanco.png">
+    <title>NEXTFLOW - Gestión Integral de Espacios</title>
+    <link rel="stylesheet" href="styles/css/index.css?v=5.2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="styles/js/theme-toggle.js"></script>
+</head>
+<body>
+    <header>
+    
+    <!-- Codigo para el navbar de la pagina -->
+        <nav class="navbar" style="position: relative;">
+            <div class="navigation-container">
+                <div class="menu-button show-mobile" onclick="openMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <a href="javascript:void(0)" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="logo-link-large">
+                    <img src="images/NextFlow_Logo_blanco.png" alt="NEXTFLOW Logo">
+                    <h1>NEXTFLOW</h1>
+                </a>
+            </div>
+            <div class="navigation-wrapper hide-mobile">
+                <a href="quienessomos.html" class="button-cta"><i class="fas fa-users" style="margin-right: 0.5em;"></i>Quiénes Somos</a>
+                <a href="login.html" class="button-cta"><i class="fas fa-user" style="margin-right: 0.5em;"></i>Iniciar Sesion</a>
+                <!-- Botón de cambio de tema -->
+                <button class="theme-toggle-btn" onclick="window.themeToggle.toggle()" style="background-color: var(--primary-color); border: none; color: var(--dark-bg); font-size: 1.2rem; cursor: pointer; padding: 0; border-radius: 50%; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px; flex-shrink: 0;" aria-label="Cambiar tema" title="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <div class="close-menu" onclick="closeMobileMenu()">
+                    <i class="fas fa-times"></i>
+                </div>
+                <a href="javascript:void(0)" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="logo-link-large">
+                    <img src="images/NextFlow_Logo.png" alt="NEXTFLOW Logo">
+                    <h1>NEXTFLOW</h1>
+                </a>
+            </div>
+            <div class="mobile-nav-links">
+                <a href="quienessomos.html" class="mobile-nav-link"><i class="fas fa-users" style="margin-right: 0.5em;"></i>Quiénes Somos</a>
+                <a href="login.html" class="mobile-nav-link"><i class="fas fa-user" style="margin-right: 0.5em;"></i>Iniciar Sesion</a>
+                <button class="theme-toggle-btn mobile-nav-link" onclick="window.themeToggle.toggle()" style="border: none; background: transparent; width: 100%; text-align: left; cursor: pointer; padding: 1rem; color: var(--text-primary, #333); font-size: 1.2rem;" aria-label="Cambiar tema" title="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Sección en donde esta el titulo, ademas de el carrusel de imagenes-->
+    <main>
+        <section id="hero">
+            <div class="hero-content"> <!-- Titulo ademas de sus bonotenes respectivos, como el href para ir a las futuras paginas -->
+                <h1>Gestión Integral de Espacios</h1>
+                <p>Administra y arrienda tus espacios de manera eficiente y profesional.</p>
+                <div class="hero-buttons">
+                    <a href="servicios.html" class="btn-primary">Nuestros Servicios</a>
+                    <a href="#espacios-disponibles" class="btn-secondary" onclick="scrollToSection('espacios-disponibles')">Espacios Disponibles</a>
+                </div>
+            </div>
+    <!-- Aqui van los href de las imagenes para el carrusel del inicio -->
+            <div class="hero-image">
+                <div class="carousel-container" id="carousel">
+                    <div class="carousel-slide active">
+                        <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/899f332c-7c7e-5e0a-bf77-7f1dcbf482bb/17e6eb08-8219-5c70-abea-afe01e629e02.jpg" alt="Espacios Modernos">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/117d48b5-34b7-55d4-886c-97eea4544ea4/946ea3b5-19b9-5cc1-a0af-e182b097a475.jpg" alt="Gestión Profesional">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://blog.llego.cl/hs-fs/hubfs/Bodegas%20de%20almacenamiento.webp?width=1920&height=1080&name=Bodegas%20de%20almacenamiento.webp" alt="Espacios Disponibles">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/b1c7761d-4980-5646-b57d-c1d2a3dd7df3/9ac3b9f2-20f8-5bcc-9912-227cb844240d.jpg" alt="Arriendo de Espacios">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+   
+
+
+    <!-- Sección de Soluciones Integrales -->
+        <section id="soluciones" class="section-padding bg-light">
+            <div class="section-header">
+                <h2>Soluciones Integrales</h2>
+                <p>Optimizamos la gestión de tus espacios con herramientas especializadas</p>
+            </div>
+    <!-- Card de los servicios de la seccion de soluciones integrales -->
+            <div class="soluciones-container">
+                <div class="soluciones-grid">
+                    <div class="solucion-card">
+                        <div class="solucion-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Gestión de Espacios</h3>
+                        <p>Administra de manera segura y eficiente todos tus espacios disponibles.</p>
+                    </div>
+                    <div class="solucion-card">
+                        <div class="solucion-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Publicaciones de Arriendo</h3>
+                        <p>Publica y gestiona el arriendo de tus espacios de forma profesional.</p>
+                    </div>
+                    <div class="solucion-card">
+                        <div class="solucion-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Reportes y Análisis</h3>
+                        <p>Controla el uso de tus espacios con reportes detallados en tiempo real.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- Modal para citas disponibles -->
+
+        
+    </main>
+
+
+    <!-- Sección de Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <div class="contact-item">
+                    <i class="fas fa-user"></i>
+                    <p>eduardo.melgarejo@virginiogomez.cl</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+56 9 76856278</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Políticas</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Política de Privacidad</a></li>
+                    <li><a href="#" class="footer-link">Política de Uso</a></li>
+                    <li><a href="#" class="footer-link">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 NEXTFLOW. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script para el carrusel de imagenes -->
+    <script>
+        // Script para el desplazamiento suave
+        function scrollToSection(sectionId) {
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                const targetPosition = targetSection.offsetTop;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 1000;
+                let start = null;
+                
+                function animation(currentTime) {
+                    if (start === null) start = currentTime;
+                    const timeElapsed = currentTime - start;
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    
+                    const easeInOutCubic = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                    
+                    window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
+                    
+                    if (timeElapsed < duration) {
+                        requestAnimationFrame(animation);
+                    }
+                }
+                
+                requestAnimationFrame(animation);
+            }
+        }
+
+        // Función para cerrar el menú móvil
+        function closeMobileMenu() {
+            var menu = document.getElementById('mobileMenu');
+            if(menu) menu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Seleccionar todos los enlaces del navbar
+            const navLinks = document.querySelectorAll('.navigation-link, .mobile-nav-link');
+            
+            // Agregar evento de clic a cada enlace
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Obtener el ID de la sección objetivo
+                    const targetId = this.getAttribute('href');
+                    
+                    // Solo prevenir el comportamiento por defecto si es un enlace de navegación interna
+                    if (targetId && targetId.startsWith('#')) {
+                        e.preventDefault();
+                        scrollToSection(targetId.substring(1));
+                    }
+                });
+            });
+        });
+
+        // Script para el carrusel de imagenes
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            let currentSlide = 0;
+            const slideInterval = 3000; // 3 segundos
+            
+            // Funcion para mostrar la imagen actual
+            function showSlide(n) {
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                
+                // Funcion para mostrar la imagen actual
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+
+            // Funcion para pasar a la siguiente imagen
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
+
+            // Iniciar el carrusel de imagenes
+            setInterval(nextSlide, slideInterval);
+        });
+
+        // Script para el menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('.menu-button');
+            const closeMenu = document.querySelector('.close-menu');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            // Función para abrir el menú móvil 
+            if (menuButton) {
+                menuButton.addEventListener('click', () => {
+                    if (mobileMenu) {
+                        mobileMenu.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            }
+
+            // Función para cerrar el menú móvil
+            if (closeMenu) {
+                closeMenu.addEventListener('click', () => {
+                    if (mobileMenu) {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+
+            // Cerrar menú al hacer clic en un enlace del menú móvil
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mobileMenu) {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            });
+        });
+
+        // Función global para abrir el menú móvil (usada por onclick en HTML)
+        function openMobileMenu() {
+            var menu = document.getElementById('mobileMenu');
+            if(menu) {
+                menu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // --- FUNCIONES PARA CARGAR MÉDICOS (igual que paciente.js) ---
+        
+        // Cargar médicos disponibles al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            cargarMedicosDisponibles();
+        });
+
+        // Función para cargar médicos disponibles
+        async function cargarMedicosDisponibles() {
+            const contenedor = document.getElementById('medicos-asignados-list');
+            contenedor.innerHTML = '<div style="color:#888;text-align:center;padding:2rem;"><i class="fas fa-spinner fa-spin"></i> Cargando médicos disponibles...</div>';
+            
+            try {
+                const res = await fetch('/GestionDeEspacios/backend/public/mostrar_medicos_agendar.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'listar_medicos_publicos' })
+                });
+                const data = await res.json();
+                
+                if (!data.success || !Array.isArray(data.medicos) || data.medicos.length === 0) {
+                    contenedor.innerHTML = '<div style="color:#888;text-align:center;padding:2rem;">No hay médicos disponibles actualmente.</div>';
+                    window.ultimaListaMedicos = [];
+                    return;
+                }
+                
+                window.ultimaListaMedicos = data.medicos;
+                
+                // Obtener valores únicos para los selects
+                const regiones = [...new Set(data.medicos.map(m => m.region).filter(Boolean))];
+                const ciudades = [...new Set(data.medicos.map(m => m.ciudad).filter(Boolean))];
+                const especialidades = [...new Set(data.medicos.map(m => m.especialidad).filter(Boolean))];
+                
+                // Actualizar los selects de filtros
+                const filtroRegion = document.getElementById('filtro-region');
+                const filtroCiudad = document.getElementById('filtro-ciudad');
+                const filtroEspecialidad = document.getElementById('filtro-especialidad');
+                
+                filtroRegion.innerHTML = '<option value="">Todas</option>' + regiones.map(r => `<option value="${r}">${r}</option>`).join('');
+                filtroCiudad.innerHTML = '<option value="">Todas</option>' + ciudades.map(c => `<option value="${c}">${c}</option>`).join('');
+                filtroEspecialidad.innerHTML = '<option value="">Todas</option>' + especialidades.map(e => `<option value="${e}">${e}</option>`).join('');
+                
+                // Renderizar cards de médicos
+                let html = '<div class="medicos-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2rem;max-width:1200px;margin:0 auto;">';
+                
+                data.medicos.forEach(medico => {
+                    html += `<div class="medico-card-publico" data-region="${medico.region || ''}" data-ciudad="${medico.ciudad || ''}" data-especialidad="${medico.especialidad || ''}" style="background:#fff;border-radius:14px;box-shadow:0 2px 12px #0001;padding:1.5rem;transition:transform 0.2s,box-shadow 0.2s;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
+                            <div style="display:flex;align-items:center;gap:0.8rem;">
+                                <div style="width:50px;height:50px;background:linear-gradient(135deg,#3498db,#2980b9);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2em;">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div>
+                                    <div style="font-weight:600;color:#2c3e50;font-size:1.1em;">${medico.nombre} ${medico.apellido}</div>
+                                    <div style="color:#3498db;font-size:0.9em;"><i class="fas fa-stethoscope"></i> ${medico.especialidad}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom:1.5rem;font-size:0.95em;color:#666;">
+                            <div style="margin-bottom:0.5rem;"><b>Región:</b> ${medico.region || 'N/A'} &bull; <b>Ciudad:</b> ${medico.ciudad || 'N/A'}</div>
+                            <div style="margin-bottom:0.5rem;"><b>Dirección:</b> ${medico.direccion || 'N/A'}</div>
+                            <div><b>Ubicación interna:</b> ${medico.ubicacion_interna || 'N/A'}</div>
+                        </div>
+                        <button class="ver-citas-disponibles-btn" data-id="${medico.id_medico}" style="width:100%;background:linear-gradient(135deg,#27ae60,#2ecc71);color:#fff;border:none;border-radius:8px;padding:0.8rem;font-weight:600;cursor:pointer;transition:transform 0.2s;">
+                            <i class="fas fa-calendar-plus"></i> Ver citas disponibles
+                        </button>
+                    </div>`;
+                });
+                
+                html += '</div>';
+                contenedor.innerHTML = html;
+                
+                // Agregar event listeners a los botones
+                document.querySelectorAll('.ver-citas-disponibles-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        mostrarModalCitasDisponibles(this.dataset.id);
+                    });
+                });
+                
+                // Configurar filtros
+                const grid = contenedor.querySelector('.medicos-grid');
+                function filtrarCards() {
+                    const region = document.getElementById('filtro-region').value;
+                    const ciudad = document.getElementById('filtro-ciudad').value;
+                    const especialidad = document.getElementById('filtro-especialidad').value;
+                    
+                    grid.querySelectorAll('.medico-card-publico').forEach(card => {
+                        const matchRegion = !region || card.dataset.region === region;
+                        const matchCiudad = !ciudad || card.dataset.ciudad === ciudad;
+                        const matchEsp = !especialidad || card.dataset.especialidad === especialidad;
+                        card.style.display = (matchRegion && matchCiudad && matchEsp) ? '' : 'none';
+                    });
+                }
+                
+                document.getElementById('filtro-region').addEventListener('change', filtrarCards);
+                document.getElementById('filtro-ciudad').addEventListener('change', filtrarCards);
+                document.getElementById('filtro-especialidad').addEventListener('change', filtrarCards);
+                
+            } catch (err) {
+                contenedor.innerHTML = '<div style="color:red;text-align:center;">Error al cargar médicos.</div>';
+                window.ultimaListaMedicos = [];
+            }
+        }
+
+        // Modal para mostrar citas disponibles
+        async function mostrarModalCitasDisponibles(id_medico) {
+            const modal = document.getElementById('modal-citas-disponibles');
+            modal.innerHTML = `<div id="modal-citas-content" style="background:#fff;padding:2.2rem 2.5rem;border-radius:16px;box-shadow:0 4px 24px #0002;min-width:420px;max-width:700px;width:90vw;position:relative;margin-top:80px;">
+                <button id="cerrar-modal-citas" style="position:absolute;top:1em;right:1em;background:none;border:none;font-size:1.3em;color:#888;cursor:pointer;"><i class="fas fa-times"></i></button>
+                <h3 style="margin-bottom:1.2em;color:#2c3e50;font-size:1.2em;"><i class="fas fa-calendar-plus" style="color:#3498db;margin-right:0.5em;"></i>Citas disponibles</h3>
+                <div style='margin-bottom:1.2em;display:flex;align-items:center;gap:0.7em;'>
+                    <label for='filtro-fecha-cita' style='font-weight:600;color:#2c3e50;'>Buscar por fecha:</label>
+                    <input type='date' id='filtro-fecha-cita' style='padding:0.4em 0.7em;border-radius:7px;border:1px solid #ccc;'/>
+                    <button id='limpiar-fecha-cita' title='Limpiar búsqueda' style='background:none;border:none;color:#e74c3c;font-size:1.3em;cursor:pointer;'><i class='fas fa-times-circle'></i></button>
+                </div>
+                <div id="citas-disponibles-list" style="min-height:60px;max-height:340px;overflow-y:auto;"></div>
+            </div>`;
+            modal.style.display = 'flex';
+            
+            document.getElementById('cerrar-modal-citas').onclick = function() {
+                modal.style.display = 'none';
+            };
+            
+            // Cargar citas disponibles
+            const lista = document.getElementById('citas-disponibles-list');
+            lista.innerHTML = '<div style="color:#888;text-align:center;padding:1.5rem;"><i class="fas fa-spinner fa-spin"></i> Cargando citas...</div>';
+            let todasLasCitas = [];
+            
+            try {
+                const res = await fetch('/GestionDeEspacios/backend/public/mostrar_medicos_agendar.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'listar_citas_disponibles', id_medico })
+                });
+                const data = await res.json();
+                
+                if (!data.success || !Array.isArray(data.citas) || data.citas.length === 0) {
+                    lista.innerHTML = '<div style="color:#888;text-align:center;padding:1.5rem;">No hay citas disponibles para este médico.</div>';
+                    return;
+                }
+                
+                // Obtener fecha actual de Chile
+                const nowChile = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Santiago' }));
+                const yyyy = nowChile.getFullYear();
+                const mm = String(nowChile.getMonth() + 1).padStart(2, '0');
+                const dd = String(nowChile.getDate()).padStart(2, '0');
+                const hoyChile = `${yyyy}-${mm}-${dd}`;
+                
+                // Filtrar solo citas de hoy en adelante
+                todasLasCitas = data.citas.filter(c => c.fecha >= hoyChile);
+                renderCitasDisponibles(todasLasCitas);
+                
+                document.getElementById('filtro-fecha-cita').addEventListener('input', function() {
+                    const fecha = this.value;
+                    if (!fecha) {
+                        renderCitasDisponibles(todasLasCitas);
+                    } else {
+                        const filtradas = todasLasCitas.filter(c => c.fecha === fecha);
+                        renderCitasDisponibles(filtradas);
+                    }
+                });
+                
+                document.getElementById('limpiar-fecha-cita').onclick = function() {
+                    document.getElementById('filtro-fecha-cita').value = '';
+                    renderCitasDisponibles(todasLasCitas);
+                };
+                
+            } catch (err) {
+                lista.innerHTML = '<div style="color:red;text-align:center;">Error al cargar citas.</div>';
+            }
+            
+            function renderCitasDisponibles(citas) {
+                if (!citas || citas.length === 0) {
+                    lista.innerHTML = '<div style="color:#888;text-align:center;padding:1.5rem;">No hay citas para la fecha seleccionada.</div>';
+                    return;
+                }
+                
+                let html = '';
+                citas.forEach(cita => {
+                    html += `<div style="display:flex;align-items:center;justify-content:space-between;background:#f8f9fa;border-radius:8px;padding:1rem 1.2rem;margin-bottom:0.7rem;border-left:4px solid #3498db;">
+                        <div>
+                            <b>${cita.fecha}</b> &bull; <span style="color:#3498db;font-weight:600;">${cita.hora_inicio.substring(0,5)}</span>
+                        </div>
+                        <button class="agendar-cita-btn" data-id="${cita.id_cita_disponible}" style="background:#27ae60;color:#fff;padding:0.5em 1.2em;border:none;border-radius:8px;font-weight:600;cursor:pointer;">
+                            <i class="fas fa-check"></i> Agendar
+                        </button>
+                    </div>`;
+                });
+                lista.innerHTML = html;
+                
+                document.querySelectorAll('.agendar-cita-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        agendarCita(this.dataset.id);
+                    });
+                });
+            }
+            
+            // Guardar datos para usar en agendarCita
+            window.todasLasCitasModal = todasLasCitas;
+            window.ultimoMedicoModal = null;
+            
+            if (window.ultimaListaMedicos && Array.isArray(window.ultimaListaMedicos)) {
+                window.ultimoMedicoModal = window.ultimaListaMedicos.find(m => String(m.id_medico) === String(id_medico));
+            }
+        }
+
+        // Función para agendar cita
+        async function agendarCita(id_cita_disponible) {
+            // Verificar si el usuario ha iniciado sesión
+            const usuarioLogueado = sessionStorage.getItem('usuario_logueado');
+            const tipoUsuario = sessionStorage.getItem('tipo_usuario');
+            
+            if (!usuarioLogueado || !tipoUsuario) {
+                // Usuario no ha iniciado sesión, mostrar card de login
+                mostrarCardLoginRequerido();
+                return;
+            }
+            
+            // Obtener datos de la cita y del médico
+            let citaSeleccionada = null;
+            let medicoSeleccionado = null;
+            
+            if (window.todasLasCitasModal && Array.isArray(window.todasLasCitasModal)) {
+                citaSeleccionada = window.todasLasCitasModal.find(c => String(c.id_cita_disponible) === String(id_cita_disponible));
+            }
+            
+            if (window.ultimoMedicoModal && typeof window.ultimoMedicoModal === 'object') {
+                medicoSeleccionado = window.ultimoMedicoModal;
+            }
+            
+            let nombreMedico = medicoSeleccionado ? medicoSeleccionado.nombre + ' ' + medicoSeleccionado.apellido : '';
+            let especialidad = medicoSeleccionado ? medicoSeleccionado.especialidad : '';
+            let fecha = citaSeleccionada ? citaSeleccionada.fecha : '';
+            let hora = citaSeleccionada ? citaSeleccionada.hora_inicio ? citaSeleccionada.hora_inicio.substring(0,5) : '' : '';
+            
+            mostrarCardAgendarCita({
+                medico: medicoSeleccionado,
+                cita: citaSeleccionada,
+                nombreMedico,
+                especialidad,
+                fecha,
+                hora,
+                id_cita_disponible
+            });
+        }
+
+        // Función para mostrar card de login requerido
+        function mostrarCardLoginRequerido() {
+            // Overlay
+            let overlay = document.getElementById('overlay-login-requerido');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.id = 'overlay-login-requerido';
+                overlay.style.position = 'fixed';
+                overlay.style.top = 0;
+                overlay.style.left = 0;
+                overlay.style.width = '100vw';
+                overlay.style.height = '100vh';
+                overlay.style.background = 'rgba(44,62,80,0.45)';
+                overlay.style.backdropFilter = 'blur(3px)';
+                overlay.style.display = 'flex';
+                overlay.style.alignItems = 'center';
+                overlay.style.justifyContent = 'center';
+                overlay.style.zIndex = 9999;
+                document.body.appendChild(overlay);
+            }
+            
+            // Card
+            let card = document.createElement('div');
+            card.style.background = '#fff';
+            card.style.borderRadius = '16px';
+            card.style.boxShadow = '0 8px 32px rgba(44,62,80,0.18)';
+            card.style.padding = '2em 1.2em 1.5em 1.2em';
+            card.style.maxWidth = '95vw';
+            card.style.width = '350px';
+            card.style.textAlign = 'center';
+            card.style.position = 'relative';
+            card.style.display = 'flex';
+            card.style.flexDirection = 'column';
+            card.style.alignItems = 'center';
+            card.style.borderLeft = '7px solid #e74c3c';
+            
+            // Icono
+            let icono = document.createElement('div');
+            icono.innerHTML = '<i class="fas fa-user-lock" style="color:#e74c3c;font-size:2.5em;"></i>';
+            icono.style.marginBottom = '0.7em';
+            card.appendChild(icono);
+            
+            // Título
+            let titulo = document.createElement('div');
+            titulo.textContent = 'Inicio de Sesión Requerido';
+            titulo.style.fontWeight = 'bold';
+            titulo.style.fontSize = '1.2em';
+            titulo.style.color = '#2c3e50';
+            titulo.style.marginBottom = '0.5em';
+            card.appendChild(titulo);
+            
+            // Mensaje
+            let mensaje = document.createElement('div');
+            mensaje.textContent = 'Para agendar una cita, necesitas iniciar sesión en tu cuenta de paciente';
+            mensaje.style.color = '#666';
+            mensaje.style.fontSize = '1em';
+            mensaje.style.marginBottom = '1.5em';
+            mensaje.style.lineHeight = '1.4';
+            card.appendChild(mensaje);
+            
+            // Botones
+            let btns = document.createElement('div');
+            btns.style.display = 'flex';
+            btns.style.justifyContent = 'center';
+            btns.style.gap = '1rem';
+            
+            // Botón ir a login
+            let btnLogin = document.createElement('button');
+            btnLogin.textContent = 'Ir a Login';
+            btnLogin.style.background = 'linear-gradient(135deg, #3498db, #2980b9)';
+            btnLogin.style.color = '#fff';
+            btnLogin.style.border = 'none';
+            btnLogin.style.borderRadius = '8px';
+            btnLogin.style.padding = '0.7em 1.5em';
+            btnLogin.style.fontWeight = 'bold';
+            btnLogin.style.fontSize = '1em';
+            btnLogin.style.cursor = 'pointer';
+            btnLogin.onclick = function() {
+                window.location.href = 'login.html';
+            };
+            
+            // Botón cancelar
+            let btnCancel = document.createElement('button');
+            btnCancel.textContent = 'Cancelar';
+            btnCancel.style.background = 'linear-gradient(135deg, #e74c3c, #c0392b)';
+            btnCancel.style.color = '#fff';
+            btnCancel.style.border = 'none';
+            btnCancel.style.borderRadius = '8px';
+            btnCancel.style.padding = '0.7em 1.5em';
+            btnCancel.style.fontWeight = 'bold';
+            btnCancel.style.fontSize = '1em';
+            btnCancel.style.cursor = 'pointer';
+            btnCancel.onclick = function() {
+                overlay.remove();
+            };
+            
+            btns.appendChild(btnLogin);
+            btns.appendChild(btnCancel);
+            card.appendChild(btns);
+            
+            // Limpiar overlay y agregar card
+            overlay.innerHTML = '';
+            overlay.appendChild(card);
+        }
+
+        // Función para mostrar card de agendar cita
+        function mostrarCardAgendarCita({medico, cita, nombreMedico, especialidad, fecha, hora, id_cita_disponible}) {
+            // Overlay
+            let overlay = document.getElementById('overlay-agendar-cita');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.id = 'overlay-agendar-cita';
+                overlay.style.position = 'fixed';
+                overlay.style.top = 0;
+                overlay.style.left = 0;
+                overlay.style.width = '100vw';
+                overlay.style.height = '100vh';
+                overlay.style.background = 'rgba(44,62,80,0.45)';
+                overlay.style.backdropFilter = 'blur(3px)';
+                overlay.style.display = 'flex';
+                overlay.style.alignItems = 'center';
+                overlay.style.justifyContent = 'center';
+                overlay.style.zIndex = 9999;
+                document.body.appendChild(overlay);
+            }
+            
+            // Card
+            let card = document.createElement('div');
+            card.style.background = '#fff';
+            card.style.borderRadius = '16px';
+            card.style.boxShadow = '0 8px 32px rgba(44,62,80,0.18)';
+            card.style.padding = '2em 1.2em 1.5em 1.2em';
+            card.style.maxWidth = '95vw';
+            card.style.width = '350px';
+            card.style.textAlign = 'center';
+            card.style.position = 'relative';
+            card.style.display = 'flex';
+            card.style.flexDirection = 'column';
+            card.style.alignItems = 'center';
+            card.style.borderLeft = '7px solid #3498db';
+            
+            // Título
+            let titulo = document.createElement('div');
+            titulo.innerHTML = '<i class="fas fa-calendar-check" style="color:#3498db;font-size:2em;"></i>';
+            titulo.style.marginBottom = '0.7em';
+            card.appendChild(titulo);
+            
+            // Info
+            let info = document.createElement('div');
+            info.style.textAlign = 'left';
+            info.style.fontSize = '1.05em';
+            info.style.marginBottom = '1em';
+            info.innerHTML =
+                `<b>Médico:</b> ${nombreMedico}<br>`+
+                `<b>Especialidad:</b> ${especialidad}<br>`+
+                `<b>Fecha:</b> ${fecha} ${hora ? 'a las ' + hora : ''}`;
+            card.appendChild(info);
+            
+            // Motivo
+            let motivoLabel = document.createElement('label');
+            motivoLabel.textContent = 'Motivo de la consulta:';
+            motivoLabel.style.fontWeight = '600';
+            motivoLabel.style.marginBottom = '0.3em';
+            motivoLabel.style.display = 'block';
+            card.appendChild(motivoLabel);
+            
+            let motivoInput = document.createElement('textarea');
+            motivoInput.placeholder = 'Describe brevemente el motivo';
+            motivoInput.style.width = '100%';
+            motivoInput.style.minHeight = '60px';
+            motivoInput.style.borderRadius = '8px';
+            motivoInput.style.border = '1px solid #ccc';
+            motivoInput.style.marginBottom = '1em';
+            motivoInput.style.padding = '0.5em';
+            motivoInput.style.fontSize = '1em';
+            card.appendChild(motivoInput);
+            
+            // Botones
+            let btns = document.createElement('div');
+            btns.style.display = 'flex';
+            btns.style.justifyContent = 'center';
+            btns.style.gap = '1.2em';
+            
+            // Confirmar
+            let btnConfirm = document.createElement('button');
+            btnConfirm.textContent = 'Agendar';
+            btnConfirm.style.background = 'linear-gradient(135deg, #27ae60, #3498db)';
+            btnConfirm.style.color = '#fff';
+            btnConfirm.style.border = 'none';
+            btnConfirm.style.borderRadius = '8px';
+            btnConfirm.style.padding = '0.7em 1.7em';
+            btnConfirm.style.fontWeight = 'bold';
+            btnConfirm.style.fontSize = '1.08em';
+            btnConfirm.style.cursor = 'pointer';
+            btnConfirm.onclick = async function() {
+                const motivo = motivoInput.value.trim();
+                if (!motivo) {
+                    motivoInput.style.border = '1.5px solid #e74c3c';
+                    motivoInput.focus();
+                    return;
+                }
+                
+                btnConfirm.disabled = true;
+                btnCancel.disabled = true;
+                
+                try {
+                    const res = await fetch('/GestionDeEspacios/backend/public/mostrar_medicos_agendar.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ 
+                            action: 'agendar_cita_publica', 
+                            id_cita_disponible, 
+                            observaciones: motivo 
+                        })
+                    });
+                    const data = await res.json();
+                    
+                    if (data.success) {
+                        overlay.remove();
+                        mostrarCardExito('¡Cita agendada correctamente!');
+                        document.getElementById('modal-citas-disponibles').style.display = 'none';
+                        cargarMedicosDisponibles();
+                    } else {
+                        btnConfirm.disabled = false;
+                        btnCancel.disabled = false;
+                        motivoInput.style.border = '1.5px solid #e74c3c';
+                        alert(data.error || 'No se pudo agendar la cita.');
+                    }
+                } catch (err) {
+                    btnConfirm.disabled = false;
+                    btnCancel.disabled = false;
+                    alert('Error de conexión al agendar la cita.');
+                }
+            };
+            
+            // Cancelar
+            let btnCancel = document.createElement('button');
+            btnCancel.textContent = 'Cancelar';
+            btnCancel.style.background = 'linear-gradient(135deg, #e74c3c, #bdc3c7)';
+            btnCancel.style.color = '#fff';
+            btnCancel.style.border = 'none';
+            btnCancel.style.borderRadius = '8px';
+            btnCancel.style.padding = '0.7em 1.7em';
+            btnCancel.style.fontWeight = 'bold';
+            btnCancel.style.fontSize = '1.08em';
+            btnCancel.style.cursor = 'pointer';
+            btnCancel.onclick = function() {
+                overlay.remove();
+            };
+            
+            btns.appendChild(btnConfirm);
+            btns.appendChild(btnCancel);
+            card.appendChild(btns);
+            
+            // Limpiar overlay y agregar card
+            overlay.innerHTML = '';
+            overlay.appendChild(card);
+        }
+
+        // Card emergente de éxito
+        function mostrarCardExito(mensaje) {
+            let overlay = document.getElementById('overlay-exito-cita');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.id = 'overlay-exito-cita';
+                overlay.style.position = 'fixed';
+                overlay.style.top = 0;
+                overlay.style.left = 0;
+                overlay.style.width = '100vw';
+                overlay.style.height = '100vh';
+                overlay.style.background = 'rgba(44,62,80,0.25)';
+                overlay.style.backdropFilter = 'blur(2px)';
+                overlay.style.display = 'flex';
+                overlay.style.alignItems = 'center';
+                overlay.style.justifyContent = 'center';
+                overlay.style.zIndex = 10000;
+                document.body.appendChild(overlay);
+            }
+            
+            let card = document.createElement('div');
+            card.style.background = '#fff';
+            card.style.borderRadius = '16px';
+            card.style.boxShadow = '0 8px 32px rgba(39, 174, 96, 0.18)';
+            card.style.padding = '2em 2.5em 1.5em 2.5em';
+            card.style.maxWidth = '95vw';
+            card.style.width = '340px';
+            card.style.textAlign = 'center';
+            card.style.position = 'relative';
+            card.style.display = 'flex';
+            card.style.flexDirection = 'column';
+            card.style.alignItems = 'center';
+            card.style.borderLeft = '7px solid #27ae60';
+            
+            // Icono
+            let icono = document.createElement('div');
+            icono.innerHTML = '<i class="fas fa-check-circle" style="color:#27ae60;font-size:2.5em;"></i>';
+            icono.style.marginBottom = '0.7em';
+            card.appendChild(icono);
+            
+            // Mensaje
+            let texto = document.createElement('div');
+            texto.textContent = mensaje;
+            texto.style.fontWeight = 'bold';
+            texto.style.fontSize = '1.15em';
+            texto.style.color = '#2c3e50';
+            texto.style.marginBottom = '1.2em';
+            card.appendChild(texto);
+            
+            // Botón cerrar
+            let btnCerrar = document.createElement('button');
+            btnCerrar.textContent = 'Cerrar';
+            btnCerrar.style.background = 'linear-gradient(135deg, #27ae60, #3498db)';
+            btnCerrar.style.color = '#fff';
+            btnCerrar.style.border = 'none';
+            btnCerrar.style.borderRadius = '8px';
+            btnCerrar.style.padding = '0.7em 1.7em';
+            btnCerrar.style.fontWeight = 'bold';
+            btnCerrar.style.fontSize = '1.08em';
+            btnCerrar.style.cursor = 'pointer';
+            btnCerrar.onclick = function() {
+                overlay.remove();
+            };
+            card.appendChild(btnCerrar);
+            
+            overlay.innerHTML = '';
+            overlay.appendChild(card);
+            
+            // Desaparecer automáticamente después de 2.5 segundos
+            setTimeout(() => {
+                if (overlay && overlay.parentNode) overlay.remove();
+            }, 2500);
+        }
+
+        // ===== FUNCIONES PARA BOXES EN ARRIENDO DISPONIBLES =====
+        
+        // Cargar publicaciones de arriendo al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            cargarPublicacionesArriendo();
+        });
+
+        // Función para cargar publicaciones de arriendo
+        async function cargarPublicacionesArriendo() {
+            try {
+                const response = await fetch('/GestionDeEspacios/backend/public/boxes.php');
+                const data = await response.json();
+                
+                const cont = document.getElementById('listaPublicacionesArriendo');
+                if (!data.success || !Array.isArray(data.publicaciones) || data.publicaciones.length === 0) {
+                    cont.innerHTML = '<div style="color:#888;padding:2rem;width:100%;">No hay boxes en arriendo disponibles actualmente.</div>';
+                    return;
+                }
+                
+                cont.innerHTML = '';
+                data.publicaciones.forEach(pub => {
+                    let fotoUrl = '';
+                    if (pub.fotos) {
+                        let raw = pub.fotos;
+                        if (Array.isArray(raw)) raw = raw[0];
+                        if (raw) {
+                            raw = raw.replace(/^\/+/,'');
+                            fotoUrl = `/GestionDeEspacios/${raw}`;
+                        }
+                    }
+                    
+                    const card = document.createElement('div');
+                    card.className = 'publicacion-arriendo-card';
+                    card.style = 'background:#fff;border-radius:14px;box-shadow:0 2px 10px #e1e8ed;padding:1.2rem;min-width:270px;max-width:320px;flex:1 1 270px;display:flex;flex-direction:column;justify-content:space-between;';
+                    
+                    // Hacer las cards ocupen 95% del ancho en móviles
+                    const isMobile = window.innerWidth <= 768 || window.matchMedia('(max-width: 768px)').matches;
+                    if (isMobile) {
+                        card.style.minWidth = '95vw';
+                        card.style.maxWidth = '95vw';
+                        card.style.flex = '1 1 95vw';
+                        card.style.width = '95vw';
+                    }
+                    
+                    card.__pubData = pub;
+                    card.dataset.id_admin_box = pub.id_admin_box;
+                    card.dataset.id_publicacion = pub.id_publicacion;
+                    card.dataset.titulo = pub.titulo;
+                    
+                    card.innerHTML = `
+                        <div style="display:flex;flex-direction:column;align-items:center;">
+                            ${fotoUrl ? `<img src='${fotoUrl}' alt='Foto Box' style='max-width:100%;max-height:160px;border-radius:12px;box-shadow:0 2px 12px rgba(30,40,90,0.10);object-fit:cover;margin-bottom:0.7rem;'>` : `<div style='color:#bbb;text-align:center;'>Sin imagen</div>`}
+                            <div class="publicacion-arriendo-titulo" style="font-size:1.15rem;font-weight:600;color:#1a1a2e;margin-bottom:0.3rem;">${pub.titulo}</div>
+                            <div style="color:#555;font-size:0.98rem;margin-bottom:0.2rem;"><i class="fas fa-map-marker-alt"></i> ${pub.ciudad}, ${pub.region}</div>
+                            <div style="color:#888;font-size:0.95rem;margin-bottom:0.2rem;">${pub.direccion}</div>
+                            <div style="color:#f39c12;font-size:1.1rem;font-weight:600;margin-bottom:0.2rem;"><i class="fas fa-dollar-sign"></i> ${Number(pub.precio_arriendo).toLocaleString('es-CL')}</div>
+                        </div>
+                        <div style="margin-top:0.7rem;display:flex;justify-content:center;">
+                            <button class="btn-contactar-arriendo" style="background:linear-gradient(135deg,#28a745,#20c997);color:#fff;padding:0.6em 1.5em;border:none;border-radius:8px;font-weight:600;cursor:pointer;width:100%;font-size:1em;"><i class="fas fa-envelope"></i> Contactar</button>
+                        </div>
+                    `;
+                    
+                    // Agregar evento al botón contactar
+                    const btnContactar = card.querySelector('.btn-contactar-arriendo');
+                    btnContactar.onclick = function() {
+                        mostrarModalMensajeArriendo(pub);
+                    };
+                    
+                    cont.appendChild(card);
+                });
+            } catch (error) {
+                const cont = document.getElementById('listaPublicacionesArriendo');
+                cont.innerHTML = '<div style="color:#e74c3c;padding:2rem;width:100%;">Error al cargar las publicaciones.</div>';
+            }
+        }
+
+        // Función para mostrar modal de mensaje de arriendo
+        function mostrarModalMensajeArriendo(pubData) {
+            // Verificar si el usuario ha iniciado sesión
+            const usuarioLogueado = sessionStorage.getItem('usuario_logueado');
+            const tipoUsuario = sessionStorage.getItem('tipo_usuario');
+            
+            if (!usuarioLogueado || !tipoUsuario) {
+                // Usuario no ha iniciado sesión, mostrar card de login
+                mostrarCardLoginRequeridoArriendo();
+                return;
+            }
+            
+            const modal = document.createElement('div');
+            modal.id = 'modalMensajeArriendo';
+            modal.style.position = 'fixed';
+            modal.style.top = 0;
+            modal.style.left = 0;
+            modal.style.width = '100vw';
+            modal.style.height = '100vh';
+            modal.style.background = 'rgba(44,62,80,0.45)';
+            modal.style.backdropFilter = 'blur(3px)';
+            modal.style.display = 'flex';
+            modal.style.alignItems = 'center';
+            modal.style.justifyContent = 'center';
+            modal.style.zIndex = 9999;
+            
+            modal.innerHTML = `
+                <div style="background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(44,62,80,0.18);padding:2em 1.2em 1.5em 1.2em;max-width:90vw;width:350px;text-align:center;position:relative;display:flex;flex-direction:column;align-items:center;border-left:7px solid #3498db;">
+                    <button id="cerrarModalMensajeArriendo" style="position:absolute;top:0.7em;right:0.7em;background:none;border:none;font-size:1.3em;color:#888;cursor:pointer;"><i class="fas fa-times"></i></button>
+                    <div style="font-size:1.5em;color:#3498db;margin-bottom:0.5em;"><i class="fas fa-envelope"></i></div>
+                    <div style="font-weight:600;font-size:1.1em;margin-bottom:0.3em;">Contactar al Administrador</div>
+                    <div style="font-size:1em;color:#555;margin-bottom:0.7em;">Sobre: <b>${pubData.titulo || ''}</b></div>
+                    <textarea id="mensajeArriendoInput" rows="4" style="width:100%;border-radius:8px;border:1px solid #e1e8ed;padding:0.7em;margin-bottom:1em;resize:none;" placeholder="Escribe tu mensaje..."></textarea>
+                    <button id="enviarMensajeArriendoBtn" style="background:linear-gradient(135deg,#3498db,#1a1a2e);color:#fff;padding:0.6em 1.5em;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:1em;">Enviar Mensaje</button>
+                    <div id="mensajeArriendoStatus" style="margin-top:0.7em;font-size:0.98em;"></div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            document.getElementById('cerrarModalMensajeArriendo').onclick = () => modal.remove();
+            
+            document.getElementById('enviarMensajeArriendoBtn').onclick = async function() {
+                const mensaje = document.getElementById('mensajeArriendoInput').value.trim();
+                if (!mensaje) {
+                    document.getElementById('mensajeArriendoStatus').textContent = 'El mensaje no puede estar vacío.';
+                    return;
+                }
+                
+                this.disabled = true;
+                document.getElementById('mensajeArriendoStatus').textContent = 'Enviando...';
+                
+                try {
+                    const userData = JSON.parse(usuarioLogueado);
+                    const id_medico = userData.id_medico;
+                    
+                    const resp = await fetch('/GestionDeEspacios/backend/public/mensajes.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'enviar',
+                            id_admin_box: pubData.id_admin_box,
+                            id_medico: id_medico,
+                            mensaje: mensaje,
+                            id_publicacion: pubData.id_publicacion,
+                            emisor_tipo: 'medico'
+                        })
+                    });
+                    
+                    const res = await resp.json();
+                    if (res.success) {
+                        document.getElementById('mensajeArriendoStatus').innerHTML = `
+                            <div style="color:#28a745;font-weight:600;display:flex;align-items:center;gap:0.5rem;justify-content:center;">
+                                <i class="fas fa-check-circle"></i> Mensaje enviado correctamente
+                            </div>
+                            <button id="cerrarMensajeExito" style="background:linear-gradient(135deg,#28a745,#20c997);color:#fff;padding:0.4em 1em;border:none;border-radius:6px;font-weight:600;cursor:pointer;margin-top:0.5rem;font-size:0.9em;">Cerrar</button>
+                        `;
+                        document.getElementById('cerrarMensajeExito').onclick = () => modal.remove();
+                    } else {
+                        document.getElementById('mensajeArriendoStatus').textContent = res.error || res.message || 'Error al enviar el mensaje.';
+                        this.disabled = false;
+                    }
+                } catch (e) {
+                    document.getElementById('mensajeArriendoStatus').textContent = 'Error de conexión.';
+                    this.disabled = false;
+                }
+            };
+        }
+
+        // Función para mostrar card de login requerido para arriendo
+        function mostrarCardLoginRequeridoArriendo() {
+            // Overlay
+            let overlay = document.getElementById('overlay-login-requerido-arriendo');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.id = 'overlay-login-requerido-arriendo';
+                overlay.style.position = 'fixed';
+                overlay.style.top = 0;
+                overlay.style.left = 0;
+                overlay.style.width = '100vw';
+                overlay.style.height = '100vh';
+                overlay.style.background = 'rgba(44,62,80,0.45)';
+                overlay.style.backdropFilter = 'blur(3px)';
+                overlay.style.display = 'flex';
+                overlay.style.alignItems = 'center';
+                overlay.style.justifyContent = 'center';
+                overlay.style.zIndex = 9999;
+                document.body.appendChild(overlay);
+            }
+            
+            // Card
+            let card = document.createElement('div');
+            card.style.background = '#fff';
+            card.style.borderRadius = '16px';
+            card.style.boxShadow = '0 8px 32px rgba(44,62,80,0.18)';
+            card.style.padding = '2em 1.2em 1.5em 1.2em';
+            card.style.maxWidth = '95vw';
+            card.style.width = '350px';
+            card.style.textAlign = 'center';
+            card.style.position = 'relative';
+            card.style.display = 'flex';
+            card.style.flexDirection = 'column';
+            card.style.alignItems = 'center';
+            card.style.borderLeft = '7px solid #e74c3c';
+            
+            // Icono
+            let icono = document.createElement('div');
+            icono.innerHTML = '<i class="fas fa-user-lock" style="color:#e74c3c;font-size:2.5em;"></i>';
+            icono.style.marginBottom = '0.7em';
+            card.appendChild(icono);
+            
+            // Título
+            let titulo = document.createElement('div');
+            titulo.textContent = 'Inicio de Sesión Requerido';
+            titulo.style.fontWeight = 'bold';
+            titulo.style.fontSize = '1.2em';
+            titulo.style.color = '#2c3e50';
+            titulo.style.marginBottom = '0.5em';
+            card.appendChild(titulo);
+            
+            // Mensaje
+            let mensaje = document.createElement('div');
+            mensaje.textContent = 'Para contactar sobre el arriendo de boxes, necesitas iniciar sesión en tu cuenta de medico';
+            mensaje.style.color = '#666';
+            mensaje.style.fontSize = '1em';
+            mensaje.style.marginBottom = '1.5em';
+            mensaje.style.lineHeight = '1.4';
+            card.appendChild(mensaje);
+            
+            // Botones
+            let btns = document.createElement('div');
+            btns.style.display = 'flex';
+            btns.style.justifyContent = 'center';
+            btns.style.gap = '1rem';
+            
+            // Botón ir a login
+            let btnLogin = document.createElement('button');
+            btnLogin.textContent = 'Ir a Login';
+            btnLogin.style.background = 'linear-gradient(135deg, #3498db, #2980b9)';
+            btnLogin.style.color = '#fff';
+            btnLogin.style.border = 'none';
+            btnLogin.style.borderRadius = '8px';
+            btnLogin.style.padding = '0.7em 1.5em';
+            btnLogin.style.fontWeight = 'bold';
+            btnLogin.style.fontSize = '1em';
+            btnLogin.style.cursor = 'pointer';
+            btnLogin.onclick = function() {
+                window.location.href = 'login.html';
+            };
+            
+            // Botón cancelar
+            let btnCancel = document.createElement('button');
+            btnCancel.textContent = 'Cancelar';
+            btnCancel.style.background = 'linear-gradient(135deg, #e74c3c, #c0392b)';
+            btnCancel.style.color = '#fff';
+            btnCancel.style.border = 'none';
+            btnCancel.style.borderRadius = '8px';
+            btnCancel.style.padding = '0.7em 1.5em';
+            btnCancel.style.fontWeight = 'bold';
+            btnCancel.style.fontSize = '1em';
+            btnCancel.style.cursor = 'pointer';
+            btnCancel.onclick = function() {
+                overlay.remove();
+            };
+            
+            btns.appendChild(btnLogin);
+            btns.appendChild(btnCancel);
+            card.appendChild(btns);
+            
+            // Limpiar overlay y agregar card
+            overlay.innerHTML = '';
+            overlay.appendChild(card);
+        }
+    </script>
+</body>
+</html>

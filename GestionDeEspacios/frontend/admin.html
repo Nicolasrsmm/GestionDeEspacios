@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/NextFlow_Logo_blanco.png">
+    <title>Admin - NEXTFLOW</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/css/admin.css?v=11.34">
+    <script src="styles/js/theme-toggle.js"></script>
+</head>
+<body>
+    <!-- BARRA SUPERIOR MÓVIL -->
+    <div class="topbar-mobile" id="topbarMobile">
+        <img src="images/logo_next_blanco_sinfondo.png" class="logo-mobile-big" alt="Logo NextFlow" />
+        <button class="hamburger-mobile" id="hamburgerMobile" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="mobile-user-block">
+            <div class="user-avatar" id="mobileUserAvatar">NS</div>
+            <div class="user-name" id="mobileUserName">Nombre Apellido</div>
+        </div>
+    </div>
+    <div class="sidebar-menu-mobile" id="sidebarMenuMobile">
+        <a href="#" class="menu-item active" onclick="setActiveMenu(this)"><i class="fas fa-home"></i> <span>Inicio</span></a>
+        <a href="#" class="menu-item" onclick="setActiveMenu(this)"><i class="fas fa-user"></i> <span>Mi Perfil</span></a>
+        <a href="#" class="menu-item" onclick="setActiveMenu(this)"><i class="fas fa-user-shield"></i> <span>Gestionar Administradores</span></a>
+        <a href="#" class="menu-item" onclick="setActiveMenu(this)"><i class="fas fa-users"></i> <span>Gestionar Usuarios</span></a>
+        <a href="#" class="menu-item" onclick="setActiveMenu(this)"><i class="fas fa-warehouse"></i> <span>Gestionar Espacios</span></a>
+        <a href="#" class="menu-item" onclick="setActiveMenu(this)"><i class="fas fa-chart-bar"></i> <span>Generar Reportes</span></a>
+        <button class="theme-toggle-btn menu-item" onclick="window.themeToggle.toggle()" style="border: none; background: transparent; width: 100%; text-align: left; cursor: pointer;">
+            <i class="fas fa-moon"></i> <span>Cambiar Tema</span>
+        </button>
+        
+        
+        <a href="#" class="menu-item logout-mobile" onclick="logout()"><i class="fas fa-sign-out-alt"></i> <span>Cerrar Sesión</span></a>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo_next_blanco_sinfondo.png" alt="Logo NextFlow">
+            <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="sidebar-menu">
+            <button class="sidebar-toggle menu-toggle" id="sidebarToggleMenu" onclick="toggleSidebar()" style="display:none">
+                <i class="fas fa-bars"></i>
+            </button>
+            <a href="#" class="menu-item active" onclick="setActiveMenu(this)">
+                <i class="fas fa-home"></i>
+                <span>Inicio</span>
+            </a>
+            <a href="#" class="menu-item" onclick="setActiveMenu(this)">
+                <i class="fas fa-user"></i>
+                <span>Mi Perfil</span>
+            </a>
+            <a href="#" class="menu-item" onclick="setActiveMenu(this)">
+                <i class="fas fa-user-shield"></i>
+                <span>Gestionar Administradores</span>
+            </a>
+            <a href="#" class="menu-item" onclick="setActiveMenu(this)">
+                <i class="fas fa-users"></i>
+                <span>Gestionar Usuarios</span>
+            </a>
+            <a href="#" class="menu-item" onclick="setActiveMenu(this)">
+                <i class="fas fa-warehouse"></i>
+                <span>Gestionar Espacios</span>
+            </a>
+            <a href="#" class="menu-item" onclick="setActiveMenu(this)">
+                <i class="fas fa-chart-bar"></i>
+                <span>Generar Reportes</span>
+            </a>
+            <button class="theme-toggle-btn menu-item" onclick="window.themeToggle.toggle()" style="border: none; background: transparent; width: 100%; text-align: left; cursor: pointer;">
+                <i class="fas fa-moon"></i>
+                <span>Cambiar Tema</span>
+            </button>
+            
+            
+        </div>
+        
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">
+                    A
+                </div>
+                <div class="user-details">
+                    <div class="user-name" id="userName">Cargando...</div>
+                    <div class="user-role">Admin Sistema</div>
+                </div>
+            </div>
+            <button class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                Cerrar Sesión
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <div class="container">
+            <!-- El contenido se carga dinámicamente desde admin.js -->
+        </div>
+    </div>
+
+    <script src="styles/js/admin.js?v=11.32"></script>
+    
+</body>
+</html> 

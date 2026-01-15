@@ -1,0 +1,6 @@
+{
+    "require": {
+        "transbank/transbank-sdk": "^5.1",
+        "phpmailer/phpmailer": "^7.0"
+    }
+}

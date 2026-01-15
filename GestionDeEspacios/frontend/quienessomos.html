@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/NextFlow_Logo_blanco.png">
+    <title>NEXTFLOW - Gestión Integral de Espacios</title>
+    <link rel="stylesheet" href="styles/css/quienessomos.css?v=6.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="styles/js/theme-toggle.js"></script>
+</head>
+<body>
+    <header>
+    <!-- Codigo para el navbar de la pagina -->
+        <nav class="navbar">
+            <div class="navigation-container">
+                <div class="menu-button show-mobile" onclick="openMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <a href="javascript:void(0)" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="logo-link-large">
+                    <img src="images/NextFlow_Logo-preview.png" alt="NEXTFLOW Logo">
+                    <h1>NEXTFLOW</h1>
+                </a>
+            </div>
+            <div class="navigation-wrapper hide-mobile">
+                <a href="index.html" class="button-cta"><i class="fas fa-house" style="margin-right: 0.5em;"></i>Inicio</a>
+                <a href="login.html" class="button-cta"><i class="fas fa-user" style="margin-right: 0.5em;"></i>Iniciar Sesion</a>
+                <!-- Botón de cambio de tema -->
+                <button class="theme-toggle-btn" onclick="window.themeToggle.toggle()" style="background-color: var(--primary-color); border: none; color: var(--dark-bg); font-size: 1.2rem; cursor: pointer; padding: 0; border-radius: 50%; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px; flex-shrink: 0;" aria-label="Cambiar tema" title="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <div class="close-menu" onclick="closeMobileMenu()">
+                    <i class="fas fa-times"></i>
+                </div>
+                <a href="javascript:void(0)" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="logo-link-large">
+                    <img src="images/NextFlow_Logo.png" alt="NEXTFLOW Logo">
+                    <h1>NEXTFLOW</h1>
+                </a>
+            </div>
+            <div class="mobile-nav-links">
+                <a href="index.html" class="mobile-nav-link"><i class="fas fa-house" style="margin-right: 0.5em;"></i>Inicio</a>
+                <a href="login.html" class="mobile-nav-link"><i class="fas fa-user" style="margin-right: 0.5em;"></i>Iniciar Sesion</a>
+                <button class="theme-toggle-btn mobile-nav-link" onclick="window.themeToggle.toggle()" style="border: none; background: transparent; width: 100%; text-align: left; cursor: pointer; padding: 1rem; color: var(--text-primary, #333); font-size: 1.2rem;" aria-label="Cambiar tema" title="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+        
+
+    <!-- Sección de Características Principales -->
+        <section id="gestion-horarios" class="section-padding bg-light">
+            <div class="section-header">
+                <h2>Características Principales</h2>
+                <p>Optimiza la administración de tus espacios y mejora la experiencia de gestión.</p>
+            </div>
+            <div class="gestion-container">
+                <div class="gestion-content">
+                    <div class="gestion-card">
+                        <div class="gestion-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Control Total</h3>                       
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Gestión completa de inventarios.</li>
+                            <li><i class="fas fa-check"></i> Reportes detallados de uso.</li>
+                            <li><i class="fas fa-check"></i> Seguimiento en tiempo real.</li>
+                            <li><i class="fas fa-check"></i> Estadísticas de ocupación.</li>
+                        </ul>
+                    </div>
+                    <div class="gestion-card">
+                        <div class="gestion-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Gestión Integral</h3>                       
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Administración de colaboradores.</li>
+                            <li><i class="fas fa-check"></i> Control de publicaciones.</li>
+                            <li><i class="fas fa-check"></i> Optimización de recursos.</li>
+                            <li><i class="fas fa-check"></i> Calificaciones y feedback.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    <!-- Sección de Soluciones Integrales -->
+        <section id="soluciones" class="section-padding bg-light">
+            <div class="section-header">
+                <h2>Soluciones Integrales</h2>
+                <p>Optimizamos la gestión de tus espacios con herramientas especializadas</p>
+            </div>
+    <!-- Card de los servicios de la seccion de soluciones integrales -->
+            <div class="soluciones-container">
+                <div class="soluciones-grid">
+                    <div class="solucion-card">
+                        <div class="solucion-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Gestión de Espacios</h3>
+                        <p>Administra de manera segura y eficiente todos tus espacios disponibles.</p>
+                    </div>
+                    <div class="solucion-card">
+                        <div class="solucion-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Publicaciones de Arriendo</h3>
+                        <p>Publica y gestiona el arriendo de tus espacios de forma profesional.</p>
+                    </div>
+                    <div class="solucion-card">
+                        <div class="solucion-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Reportes y Análisis</h3>
+                        <p>Controla el uso de tus espacios con reportes detallados en tiempo real.</p>
+                    </div>
+                </div>
+
+
+    <!-- Sección de Tipos de Espacios -->
+                <div class="section-header">
+                    <h2>Tipos de Espacios</h2>
+                    <p>Soluciones adaptadas para cada tipo de espacio</p>
+                </div>
+
+    <!-- Card de la seccion de tipos de espacios -->
+                <div class="centros-grid">
+                    <div class="centro-card">
+                        <img src="https://gesab.com/wp-content/uploads/2023/08/Meeting-room-Guide-GESAB-10.webp" alt="Oficinas">
+                        <h3>Oficinas</h3>
+                        <p>Gestión integral de espacios de trabajo, incluyendo áreas compartidas y salas de reuniones.</p>
+                    </div>
+
+                    <div class="centro-card">
+                        <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/b2cb3554-a6dd-5a66-aef4-3e8e8544eb14/aea87596-f96d-554b-b6b6-3f49ba6ea7ca.jpg" alt="Consultorios">
+                        <h3>Consultorios</h3>
+                        <p>Herramientas especializadas para administrar consultorios profesionales y espacios de atención.</p>
+                    </div>
+
+                    <div class="centro-card">
+                        <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/fa13aab0-0f05-549c-8198-b37e6910503f/7ed0cb00-bed8-543f-b3fd-0b56630458e6.jpg" alt="Espacios Comerciales">
+                        <h3>Espacios Comerciales</h3>
+                        <p>Gestión de locales comerciales y tiendas, con seguimiento de ocupación y contratos.</p>
+                    </div>                 
+
+                    <div class="centro-card">
+                        <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/fb33c568-cdb7-5d37-bb9b-b3711547adbc/4d3a91f4-17b5-537d-8f56-afe2e3cf521b.jpg" alt="Almacenes">
+                        <h3>Almacenes</h3>
+                        <p>Gestión de bodegas y almacenes, control de inventario y seguimiento de uso.</p>
+                    </div>
+
+                    <div class="centro-card">
+                        <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/6f0d39af-3484-5f6d-8ca2-e36a9edd7aad/24b602b7-a272-57af-a2d3-bedced623c76.jpg" alt="Salas de Eventos">
+                        <h3>Salas de Eventos</h3>
+                        <p>Gestión de auditorios y salas de eventos, con calendarización y reservas.</p>
+                    </div>   
+
+                    <div class="centro-card">
+                        <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/fb33c568-cdb7-5d37-bb9b-b3711547adbc/4d3a91f4-17b5-537d-8f56-afe2e3cf521b.jpg" alt="Espacios Flexibles">
+                        <h3>Espacios Flexibles</h3>
+                        <p>Gestión de espacios versátiles adaptables a diferentes necesidades de arriendo.</p>
+                    </div>             
+                </div>
+            </div>
+        </section>
+
+       
+    </main>
+
+
+    <!-- Sección de Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <div class="contact-item">
+                    <i class="fas fa-user"></i>
+                    <p>eduardo.melgarejo@virginiogomez.cl</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+56 9 76856278</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Políticas</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Política de Privacidad</a></li>
+                    <li><a href="#" class="footer-link">Política de Uso</a></li>
+                    <li><a href="#" class="footer-link">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 NEXTFLOW. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script para el carrusel de imagenes -->
+    <script>
+        // Script para el desplazamiento suave
+        function scrollToSection(sectionId) {
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                const targetPosition = targetSection.offsetTop;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 1000;
+                let start = null;
+                
+                function animation(currentTime) {
+                    if (start === null) start = currentTime;
+                    const timeElapsed = currentTime - start;
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    
+                    const easeInOutCubic = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                    
+                    window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
+                    
+                    if (timeElapsed < duration) {
+                        requestAnimationFrame(animation);
+                    }
+                }
+                
+                requestAnimationFrame(animation);
+            }
+        }
+
+        // Función para cerrar el menú móvil
+        function closeMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Seleccionar todos los enlaces del navbar
+            const navLinks = document.querySelectorAll('.navigation-link, .mobile-nav-link');
+            
+            // Agregar evento de clic a cada enlace
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Obtener el ID de la sección objetivo
+                    const targetId = this.getAttribute('href');
+                    
+                    // Solo prevenir el comportamiento por defecto si es un enlace de navegación interna
+                    if (targetId && targetId.startsWith('#')) {
+                        e.preventDefault();
+                        scrollToSection(targetId.substring(1));
+                    }
+                });
+            });
+        });
+
+        // Script para el carrusel de imagenes
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            let currentSlide = 0;
+            const slideInterval = 3000; // 3 segundos
+            
+            // Funcion para mostrar la imagen actual
+            function showSlide(n) {
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                
+                // Funcion para mostrar la imagen actual
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+
+            // Funcion para pasar a la siguiente imagen
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
+
+            // Iniciar el carrusel de imagenes
+            setInterval(nextSlide, slideInterval);
+        });
+
+        // Script para el menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('.menu-button');
+            const closeMenu = document.querySelector('.close-menu');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            // Función para abrir el menú móvil 
+            if (menuButton) {
+                menuButton.addEventListener('click', () => {
+                    if (mobileMenu) {
+                        mobileMenu.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            }
+
+            // Función para cerrar el menú móvil
+            if (closeMenu) {
+                closeMenu.addEventListener('click', () => {
+                    if (mobileMenu) {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+
+            // Cerrar menú al hacer clic en un enlace del menú móvil
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mobileMenu) {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            });
+        });
+
+        // Función global para abrir el menú móvil (usada por onclick en HTML)
+        function openMobileMenu() {
+            var menu = document.getElementById('mobileMenu');
+            if(menu) {
+                menu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+    </script>
+</body>
+</html>
