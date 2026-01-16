@@ -8,7 +8,25 @@ Está diseñada para empresas, instituciones y organizaciones que necesitan una 
 
 ## 🟢 **Para visualizar el video del software este debe ser descargado ya que github no tiene repoductor de video**
 
+**Paso1:** Seleccionar el direcotiro dodne se encuentran los videos.
 
+<img width="1917" height="520" alt="GestionEspacios1" src="https://github.com/user-attachments/assets/55f4da45-7ad5-4416-9cae-e3d615c963f4" />
+
+
+**Paso2:** Seleccionar el unico video que existe.
+
+<img width="1917" height="632" alt="Espacios22" src="https://github.com/user-attachments/assets/49d8e44e-8342-4bdb-8b32-e6adfc41668c" />
+
+
+**Paso3:** Descargar el video existente.
+
+<img width="1917" height="528" alt="Espacios3" src="https://github.com/user-attachments/assets/6d353e8c-299e-45fd-8727-f344a410a978" />
+
+
+
+
+
+---
 
 
 ## 📜 **Descripción General**
